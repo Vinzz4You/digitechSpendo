@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitech Funclub - Ekstrakurikuler Teknologi & Desain</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="logo-container">
+            <img src="logo.jpg" alt="logo">
+            <span class="brand-name">Digitech Funclub</span>
+        </div>
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Beranda</a>
+            <a href="#materi">Materi Belajar</a>
+            <a href="#jadwal">Jadwal</a>
+            <a href="#kontak" class="nav-btn">Gabung Sekarang</a>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="badge">Ekskul Teknologi & Kreatif</span>
+            <h1>Selamat Datang di <br><span class="highlight">Digitech Funclub</span></h1>
+            <p>Wadah seru untuk eksplorasi dunia coding, pemrograman, dan desain grafis kreatif. Tingkatkan keahlian digitalmu bersama kami!</p>
+            <a href="#kontak" class="btn btn-primary">Gabung Sekarang <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Materi Pembelajaran -->
+    <section id="materi" class="materi-section">
+        <h2 class="section-title">Apa Saja yang Dipelajari?</h2>
+        <p class="section-subtitle">Program seru yang dirancang khusus untuk mengasah skill digital kamu</p>
+
+        <div class="cards-grid">
+            
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-code"></i></div>
+                <h3>Coding Dasar HTML</h3>
+                <p>Belajar struktur dasar pembuatan halaman web modern dari nol menggunakan struktur dokumen HTML.</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-terminal"></i></div>
+                <h3>Pengenalan Pemrograman</h3>
+                <p>Mengenal konsep logika komputasi dan bahasa pemrograman populer seperti C++, JavaScript, dan lainnya.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-photo-video"></i></div>
+                <h3>Video & Photo Editing (Canva)</h3>
+                <p>Eksplorasi pembuatan desain grafis, poster, konten media sosial, hingga editing video kreatif menggunakan Canva.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Jadwal Kegiatan -->
+    <section id="jadwal" class="jadwal-section">
+        <div class="jadwal-box">
+            <h2><i class="far fa-calendar-alt"></i> Jadwal Pertemuan</h2>
+            <div class="jadwal-detail">
+                <p><strong>Hari:</strong> Setiap Hari Kamis</p>
+                <p><strong>Waktu:</strong> 14:30 WIB - SELESAI</p>
+                <p><strong>Lokasi:</strong> Lab. Komputer</p>
+                <p><strong>Guru:</strong> Bu Wiwik</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Kontak / Pendaftaran -->
+    <section id="kontak" class="kontak-section">
+        <div class="kontak-container">
+            <h2>Tertarik Bergabung?</h2>
+            <p>Isi formulir di bawah ini atau hubungi pengurus Digitech Funclub untuk mendaftar!</p>
+            
+            <form id="joinForm" class="join-form">
+                <div class="form-group">
+                    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="kelas" placeholder="Kelas / Tingkat" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="whatsapp" placeholder="Nomor WhatsApp" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Kirim Pendaftaran</button>
+            </form>
+            <div id="formStatus" class="form-status"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="logo.jpg" alt="logo">
+                <h3>Digitech Funclub</h3>
+            </div>
+            <p>Eksplorasi Coding, Pemrograman & Desain Grafis Kreatif</p>
+            <div class="socials">
+                <a href="https://www.tiktok.com/@spendo.id" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i> TikTok Kami</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Digitech Funclub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
