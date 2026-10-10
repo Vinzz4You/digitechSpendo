@@ -4,42 +4,78 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Menutup menu mobile ketika link diklik
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-    });
 
-    // 2. Direct Form Pendaftaran ke WhatsApp
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // 2. Feature: Ganti Tema (Cyber Dark / Cyber Light)
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    // Cek tema tersimpan dari sesi sebelumnya
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.className = savedTheme;
+        updateIcon(savedTheme === 'theme-light');
+    }
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isLight = body.classList.contains('theme-light');
+            
+            if (isLight) {
+                body.classList.remove('theme-light');
+                body.classList.add('theme-dark');
+                localStorage.setItem('theme', 'theme-dark');
+                updateIcon(false);
+            } else {
+                body.classList.remove('theme-dark');
+                body.classList.add('theme-light');
+                localStorage.setItem('theme', 'theme-light');
+                updateIcon(true);
+            }
+        });
+    }
+
+    function updateIcon(isLight) {
+        if (themeIcon) {
+            if (isLight) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+    }
+
+    // 3. Direct Form Pendaftaran ke WhatsApp
     const joinForm = document.getElementById('joinForm');
 
-    joinForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    if (joinForm) {
+        joinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        // Ambil data dari input form
-        const nama = document.getElementById('nama').value;
-        const kelas = document.getElementById('kelas').value;
-        const whatsapp = document.getElementById('whatsapp').value;
+            const nama = document.getElementById('nama').value;
+            const kelas = document.getElementById('kelas').value;
+            const whatsapp = document.getElementById('whatsapp').value;
 
-        // Nomor WhatsApp tujuan (Format internasional tanpa tanda + atau 0 di depan)
-        const nomorWA = "6285731045476";
+            const nomorWA = "6285731045476";
+            const pesan = `Halo kak! Saya ingin bergabung dengan ekstrakurikuler *Digitech Funclub*.\n\nBerikut data diri saya:\n- *Nama:* ${nama}\n- *Kelas:* ${kelas}\n- *No. WA:* ${whatsapp}\n\nMohon info selanjutnya ya, terima kasih!`;
 
-        // Format pesan otomatis
-        const pesan = `Halo kak! Saya ingin bergabung dengan ekstrakurikuler *Digitech Funclub*.\n\nBerikut data diri saya:\n- *Nama:* ${nama}\n- *Kelas:* ${kelas}\n- *No. WA:* ${whatsapp}\n\nMohon info selanjutnya ya, terima kasih!`;
-
-        // Encode pesan agar aman untuk URL WhatsApp
-        const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-
-        // Buka link WhatsApp di tab baru
-        window.open(urlWA, '_blank');
-
-        // Reset form setelah terkirim
-        joinForm.reset();
-    });
+            const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+            window.open(urlWA, '_blank');
+            joinForm.reset();
+        });
+    }
 
 });
