@@ -1,4 +1,4 @@
-/* Reset & Variabel */
+/* Reset & Variabel Tema Cyberpunk Modern */
 * {
     margin: 0;
     padding: 0;
@@ -8,19 +8,25 @@
 }
 
 :root {
-    --primary-color: #6366f1;
-    --primary-hover: #4f46e5;
-    --accent-color: #06b6d4;
-    --bg-dark: #0f172a;
-    --card-bg: #1e293b;
-    --text-light: #f8fafc;
-    --text-muted: #94a3b8;
+    --bg-deep: #070913;
+    --bg-card: #111827;
+    --primary: #00f0ff;
+    --secondary: #7928ca;
+    --accent: #ff007f;
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-cyber: rgba(0, 240, 255, 0.2);
+    --glow-cyber: 0 0 20px rgba(0, 240, 255, 0.15);
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    background-color: var(--bg-deep);
+    color: var(--text-main);
     line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(121, 40, 202, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%);
+    background-attachment: fixed;
 }
 
 /* Header & Navbar */
@@ -28,14 +34,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 6%;
-    background-color: rgba(15, 23, 42, 0.95);
+    padding: 1.2rem 6%;
+    background-color: rgba(7, 9, 19, 0.85);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-cyber);
 }
 
 .logo-container {
@@ -45,22 +51,30 @@ body {
 }
 
 .logo-container img {
-    width: 45px;
-    height: 45px;
+    width: 42px;
+    height: 42px;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
 }
 
 .brand-name {
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--text-light);
+    letter-spacing: 0.5px;
+    color: var(--text-main);
+}
+
+.neon-dot {
+    color: var(--primary);
+    text-shadow: 0 0 8px var(--primary);
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 1.8rem;
+    gap: 2rem;
 }
 
 .nav-links a {
@@ -72,92 +86,126 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--accent-color);
+    color: var(--primary);
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
 }
 
 .nav-links .nav-btn {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: #fff;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    padding: 0.5rem 1.4rem;
+    border-radius: 25px;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
 }
 
 .nav-links .nav-btn:hover {
-    background-color: var(--primary-hover);
+    opacity: 0.9;
     color: #fff;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
 }
 
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
+    color: var(--primary);
     cursor: pointer;
 }
 
 /* Hero Section */
 .hero {
-    min-height: 85vh;
+    min-height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 6rem 1rem 3rem;
-    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 1) 70%);
+    padding: 7rem 1rem 4rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
-    max-width: 750px;
+    max-width: 800px;
+    z-index: 2;
 }
 
-.badge {
-    background-color: rgba(6, 182, 212, 0.1);
-    color: var(--accent-color);
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
+.badge, .sub-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(0, 240, 255, 0.08);
+    color: var(--primary);
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
     font-size: 0.85rem;
     font-weight: 600;
-    border: 1px solid rgba(6, 182, 212, 0.3);
+    border: 1px solid var(--border-cyber);
+    box-shadow: var(--glow-cyber);
+    margin-bottom: 1rem;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 700;
-    margin: 1.2rem 0;
-    line-height: 1.2;
+    margin: 1rem 0;
+    line-height: 1.25;
 }
 
 .highlight {
-    color: var(--primary-color);
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
 }
 
 .hero p {
     font-size: 1.1rem;
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero-btns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 /* Buttons */
 .btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 0.8rem 2rem;
+    gap: 10px;
+    padding: 0.85rem 2.2rem;
     border-radius: 30px;
     font-weight: 600;
     text-decoration: none;
     transition: 0.3s;
     border: none;
     cursor: pointer;
+    font-size: 0.95rem;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: #fff;
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
     transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
+}
+
+.btn-secondary {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .btn-block {
@@ -165,25 +213,26 @@ body {
     justify-content: center;
 }
 
-/* Section Common */
+/* Sections Common */
 .materi-section, .fasilitas-section, .jadwal-section, .kontak-section {
-    padding: 5rem 6%;
+    padding: 6rem 6%;
 }
 
-.fasilitas-section {
-    background-color: rgba(30, 41, 59, 0.2);
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
 }
 
 .section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-top: 0.3rem;
 }
 
 .section-subtitle {
-    text-align: center;
     color: var(--text-muted);
-    margin-bottom: 3rem;
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
 }
 
 /* Cards Grid */
@@ -194,29 +243,48 @@ body {
 }
 
 .card {
-    background-color: var(--card-bg);
+    background-color: var(--bg-card);
     padding: 2.5rem 2rem;
-    border-radius: 16px;
+    border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: 0.3s;
-    text-align: center;
+    transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    border-color: var(--accent-color);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--border-cyber);
+    box-shadow: 0 10px 30px rgba(0, 240, 255, 0.12);
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .card-icon {
-    font-size: 2.8rem;
-    color: var(--accent-color);
+    font-size: 2.5rem;
+    color: var(--primary);
     margin-bottom: 1.2rem;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
 .card h3 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     margin-bottom: 0.8rem;
+    font-weight: 600;
 }
 
 .card p {
@@ -225,40 +293,64 @@ body {
 }
 
 /* Jadwal Section */
+.jadwal-section {
+    display: flex;
+    justify-content: center;
+}
+
 .jadwal-box {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: var(--card-bg);
-    padding: 2.5rem;
-    border-radius: 16px;
-    border-left: 5px solid var(--primary-color);
+    width: 100%;
+    max-width: 650px;
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-cyber);
+    box-shadow: var(--glow-cyber);
+    text-align: center;
+    position: relative;
+}
+
+.jadwal-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
 }
 
 .jadwal-box h2 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--accent-color);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
 }
 
-.jadwal-detail p {
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+.jadwal-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+
+.jadwal-detail strong {
+    color: var(--text-main);
 }
 
 /* Kontak / Form Section */
-.kontak-section {
-    background-color: rgba(30, 41, 59, 0.5);
-}
-
 .kontak-container {
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto;
+    background-color: var(--bg-card);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid var(--border-cyber);
+    box-shadow: var(--glow-cyber);
     text-align: center;
 }
 
 .kontak-container h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+    margin: 0.3rem 0;
 }
 
 .kontak-container p {
@@ -269,15 +361,15 @@ body {
 .join-form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.2rem;
 }
 
 .form-group input {
     width: 100%;
-    padding: 0.9rem 1.2rem;
-    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: var(--bg-dark);
+    background-color: var(--bg-deep);
     color: #fff;
     font-size: 0.95rem;
     outline: none;
@@ -285,7 +377,8 @@ body {
 }
 
 .form-group input:focus {
-    border-color: var(--primary-color);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
 .form-status {
@@ -296,7 +389,7 @@ body {
 
 /* Footer */
 footer {
-    background-color: #090d16;
+    background-color: #04050a;
     padding: 3rem 6% 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     text-align: center;
@@ -311,9 +404,18 @@ footer {
 }
 
 .footer-logo img {
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+}
+
+.footer-logo h3 {
+    font-size: 1.2rem;
+}
+
+footer > .footer-content > p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
 }
 
 .socials {
@@ -326,27 +428,30 @@ footer {
     gap: 8px;
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 1rem;
-    padding: 0.5rem 1.2rem;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.4rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
     transition: 0.3s;
 }
 
 .socials a:hover {
     color: #fff;
     background-color: #ff0050;
+    border-color: #ff0050;
+    box-shadow: 0 0 15px rgba(255, 0, 80, 0.4);
 }
 
 .footer-bottom {
     font-size: 0.85rem;
     color: var(--text-muted);
     margin-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
     padding-top: 1.5rem;
 }
 
-/* Responsif Mobile */
+/* Responsif HP / Mobile */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -359,10 +464,11 @@ footer {
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--bg-dark);
-        padding: 1.5rem 0;
+        background-color: rgba(7, 9, 19, 0.98);
+        padding: 2rem 0;
         text-align: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid var(--border-cyber);
+        backdrop-filter: blur(15px);
     }
 
     .nav-links.active {
@@ -370,6 +476,14 @@ footer {
     }
 
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+    }
+
+    .hero {
+        padding-top: 6rem;
+    }
+
+    .kontak-container, .jadwal-box {
+        padding: 2rem 1.5rem;
     }
 }
