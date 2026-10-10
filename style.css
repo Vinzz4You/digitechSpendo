@@ -60,13 +60,14 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.8rem;
 }
 
 .nav-links a {
     color: var(--text-muted);
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.95rem;
     transition: 0.3s;
 }
 
@@ -165,8 +166,12 @@ body {
 }
 
 /* Section Common */
-.materi-section, .jadwal-section, .kontak-section {
+.materi-section, .fasilitas-section, .jadwal-section, .kontak-section {
     padding: 5rem 6%;
+}
+
+.fasilitas-section {
+    background-color: rgba(30, 41, 59, 0.2);
 }
 
 .section-title {
@@ -330,7 +335,7 @@ footer {
 
 .socials a:hover {
     color: #fff;
-    background-color: #ff0050; /* Warna khas TikTok */
+    background-color: #ff0050;
 }
 
 .footer-bottom {
