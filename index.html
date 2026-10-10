@@ -25,7 +25,7 @@
     <header class="navbar">
         <div class="logo-container">
             <img src="logo.jpg" alt="logo">
-            <span class="brand-name">Digitech Funclub</span>
+            <span class="brand-name">Digitech<span class="neon-dot">.</span>Funclub</span>
         </div>
         <nav class="nav-links" id="navLinks">
             <a href="#home">Beranda</a>
@@ -41,18 +41,25 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-glow"></div>
         <div class="hero-content">
-            <span class="badge">Ekskul Teknologi & Kreatif</span>
-            <h1>Selamat Datang di <br><span class="highlight">Digitech Funclub</span></h1>
-            <p>Wadah seru untuk eksplorasi dunia coding, pemrograman, hardware, AI, dan desain grafis kreatif. Tingkatkan keahlian digitalmu bersama kami!</p>
-            <a href="#kontak" class="btn btn-primary">Gabung Sekarang <i class="fas fa-arrow-right"></i></a>
+            <span class="badge"><i class="fas fa-bolt"></i> Ekskul Teknologi & Kreatif</span>
+            <h1>Jelajahi Masa Depan Bersama <br><span class="highlight">Digitech Funclub</span></h1>
+            <p>Wadah seru untuk eksplorasi dunia coding, pemrograman, hardware, AI, dan desain grafis kreatif dengan gaya modern dan futuristik!</p>
+            <div class="hero-btns">
+                <a href="#kontak" class="btn btn-primary">Gabung Sekarang <i class="fas fa-arrow-right"></i></a>
+                <a href="#materi" class="btn btn-secondary">Eksplor Materi</a>
+            </div>
         </div>
     </section>
 
     <!-- Materi Pembelajaran -->
     <section id="materi" class="materi-section">
-        <h2 class="section-title">Apa Saja yang Dipelajari?</h2>
-        <p class="section-subtitle">Program seru yang dirancang khusus untuk mengasah skill digital kamu</p>
+        <div class="section-header">
+            <span class="sub-badge">Kurikulum</span>
+            <h2 class="section-title">Apa Saja yang Dipelajari?</h2>
+            <p class="section-subtitle">Program seru yang dirancang khusus untuk mengasah skill digital kamu</p>
+        </div>
 
         <div class="cards-grid">
             
@@ -96,8 +103,11 @@
 
     <!-- Fasilitas Section -->
     <section id="fasilitas" class="fasilitas-section">
-        <h2 class="section-title">Fasilitas Penunjang</h2>
-        <p class="section-subtitle">Fasilitas terbaik yang mendukung proses belajar dan berkarya kamu</p>
+        <div class="section-header">
+            <span class="sub-badge">Infrastruktur</span>
+            <h2 class="section-title">Fasilitas Penunjang</h2>
+            <p class="section-subtitle">Fasilitas terbaik yang mendukung proses belajar dan berkarya kamu</p>
+        </div>
 
         <div class="cards-grid">
             
@@ -125,7 +135,8 @@
     <!-- Jadwal Kegiatan -->
     <section id="jadwal" class="jadwal-section">
         <div class="jadwal-box">
-            <h2><i class="far fa-calendar-alt"></i> Jadwal Pertemuan</h2>
+            <div class="jadwal-icon"><i class="far fa-calendar-alt"></i></div>
+            <h2>Jadwal Pertemuan</h2>
             <div class="jadwal-detail">
                 <p><strong>Hari:</strong> Setiap Hari Jumat</p>
                 <p><strong>Waktu:</strong> 15:00 - 17:00 WIB</p>
@@ -137,6 +148,7 @@
     <!-- Section Kontak / Pendaftaran -->
     <section id="kontak" class="kontak-section">
         <div class="kontak-container">
+            <span class="sub-badge">Pendaftaran</span>
             <h2>Tertarik Bergabung?</h2>
             <p>Isi formulir di bawah ini untuk terhubung langsung ke WhatsApp pengurus Digitech Funclub!</p>
             
@@ -150,7 +162,7 @@
                 <div class="form-group">
                     <input type="tel" id="whatsapp" placeholder="Nomor WhatsApp" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Kirim Pendaftaran</button>
+                <button type="submit" class="btn btn-primary btn-block">Kirim Pendaftaran ke WhatsApp <i class="fab fa-whatsapp"></i></button>
             </form>
             <div id="formStatus" class="form-status"></div>
         </div>
@@ -165,7 +177,7 @@
             </div>
             <p>Eksplorasi Coding, Pemrograman, AI, Hardware & Desain Grafis</p>
             <div class="socials">
-                <a href="https://www.tiktok.com/@spendo.id" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i> TikTok Kami</a>
+                <a href="https://www.tiktok.com" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i> TikTok Kami</a>
             </div>
         </div>
         <div class="footer-bottom">
