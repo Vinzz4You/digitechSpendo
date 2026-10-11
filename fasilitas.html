@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas - Digitech Funclub</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset & Variabel */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Tema Cyber Dark (Default) */
+        body.theme-dark {
+            --bg-deep: #070913;
+            --bg-card: #111827;
+            --bg-navbar: rgba(7, 9, 19, 0.9);
+            --primary: #00f0ff;
+            --secondary: #7928ca;
+            --accent: #ff007f;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-cyber: rgba(0, 240, 255, 0.2);
+            --glow-cyber: 0 0 20px rgba(0, 240, 255, 0.15);
+            --input-bg: #070913;
+            --footer-bg: #04050a;
+        }
+
+        /* Tema Cyber Light */
+        body.theme-light {
+            --bg-deep: #f0f4f8;
+            --bg-card: #ffffff;
+            --bg-navbar: rgba(240, 244, 248, 0.95);
+            --primary: #0077ff;
+            --secondary: #7928ca;
+            --accent: #ff007f;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-cyber: rgba(0, 119, 255, 0.25);
+            --glow-cyber: 0 4px 20px rgba(0, 119, 255, 0.12);
+            --input-bg: #f8fafc;
+            --footer-bg: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        /* Header & Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 6%;
+            background-color: var(--bg-navbar);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-cyber);
+            gap: 1.5rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .logo-container img {
+            width: 42px;
+            height: 42px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid var(--primary);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+        }
+
+        .brand-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .neon-dot {
+            color: var(--primary);
+            text-shadow: 0 0 8px var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links .nav-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 0.5rem 1.4rem;
+            border-radius: 25px;
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+        }
+
+        /* Tombol Switch Tema */
+        .theme-toggle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-cyber);
+            color: var(--primary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: var(--glow-cyber);
+            flex-shrink: 0;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Fasilitas Detail Section */
+        .fasilitas-page-section {
+            padding: 8rem 6% 5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .sub-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(0, 240, 255, 0.08);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--border-cyber);
+            box-shadow: var(--glow-cyber);
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* Grid Fasilitas Detail */
+        .fasilitas-grid-detail {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .fasilitas-card-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-cyber);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--glow-cyber);
+            transition: 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fasilitas-card-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+        }
+
+        .fasilitas-icon-top {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+        }
+
+        .fasilitas-card-box h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .fasilitas-card-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .fasilitas-points {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            border-top: 1px solid var(--border-cyber);
+            padding-top: 1.2rem;
+        }
+
+        .fasilitas-points li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .fasilitas-points li i {
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            padding: 2rem 6%;
+            border-top: 1px solid var(--border-cyber);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        /* Responsif HP */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-navbar);
+                padding: 2rem 0;
+                text-align: center;
+                border-bottom: 1px solid var(--border-cyber);
+                margin-left: 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .fasilitas-card-box {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="theme-dark">
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <a href="index.html" class="logo-container">
+            <img src="logo.jpg" alt="logo">
+            <span class="brand-name">Digitech<span class="neon-dot">.</span>Funclub</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html#home">Beranda</a>
+            <a href="materi.html">Materi Belajar</a>
+            <a href="fasilitas.html" class="active">Fasilitas</a>
+            <a href="index.html#jadwal">Jadwal</a>
+            <a href="daftar.html" class="nav-btn">Gabung Sekarang</a>
+        </nav>
+
+        <!-- Tombol Switch Tema -->
+        <div class="theme-toggle" id="themeToggle" title="Ganti Tema">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </div>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Main Fasilitas Detail Section -->
+    <main class="fasilitas-page-section">
+        <div class="page-header">
+            <span class="sub-badge"><i class="fas fa-tools"></i> Infrastruktur & Dukungan</span>
+            <h1>Fasilitas Penunjang Eksklusif</h1>
+            <p>Berbagai fasilitas pendukung terbaik untuk memaksimalkan proses eksplorasi dan berkarya di Digitech Funclub.</p>
+        </div>
+
+        <div class="fasilitas-grid-detail">
+            
+            <!-- Fasilitas 1 -->
+            <div class="fasilitas-card-box">
+                <div class="fasilitas-icon-top">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3>1 Set Komputer Lengkap</h3>
+                <p>Setiap anggota mendapatkan akses penuh ke unit komputer siap pakai dengan performa optimal untuk menunjang kegiatan praktek.</p>
+                <ul class="fasilitas-points">
+                    <li><i class="fas fa-check-circle"></i> Monitor jernih resolusi tinggi</li>
+                    <li><i class="fas fa-check-circle"></i> Keyboard & Mouse ergonomis</li>
+                    <li><i class="fas fa-check-circle"></i> Terinstal software code editor & desain</li>
+                </ul>
+            </div>
+
+            <!-- Fasilitas 2 -->
+            <div class="fasilitas-card-box">
+                <div class="fasilitas-icon-top">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <h3>Koneksi WiFi Cepat</h3>
+                <p>Akses internet berkecepatan tinggi tanpa batas untuk mendukung riset materi, uji coba coding online, dan unduh aset digital.</p>
+                <ul class="fasilitas-points">
+                    <li><i class="fas fa-check-circle"></i> Jaringan stabil & berkecepatan tinggi</li>
+                    <li><i class="fas fa-check-circle"></i> Bebas akses untuk keperluan riset ekskul</li>
+                    <li><i class="fas fa-check-circle"></i> Keamanan jaringan terproteksi</li>
+                </ul>
+            </div>
+
+            <!-- Fasilitas 3 -->
+            <div class="fasilitas-card-box">
+                <div class="fasilitas-icon-top">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>Bimbingan dari Guru</h3>
+                <p>Didampingi langsung oleh guru pembimbing profesional yang siap membimbing dari tingkat dasar hingga mahir.</p>
+                <ul class="fasilitas-points">
+                    <li><i class="fas fa-check-circle"></i> Mentor berpengalaman di bidang IT</li>
+                    <li><i class="fas fa-check-circle"></i> Sesi konsultasi & tanya jawab interaktif</li>
+                    <li><i class="fas fa-check-circle"></i> Arahan proyek kreatif secara personal</li>
+                </ul>
+            </div>
+
+            <!-- Fasilitas 4 -->
+            <div class="fasilitas-card-box">
+                <div class="fasilitas-icon-top">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Laboratorium & Ruang Nyaman</h3>
+                <p>Ruangan laboratorium komputer yang kondusif, sejuk, dan tertata rapi untuk menciptakan suasana belajar yang fokus dan menyenangkan.</p>
+                <ul class="fasilitas-points">
+                    <li><i class="fas fa-check-circle"></i> Ruangan ber-AC dan pencahayaan optimal</li>
+                    <li><i class="fas fa-check-circle"></i> Suasana kolaboratif antar anggota</li>
+                    <li><i class="fas fa-check-circle"></i> Tata letak perangkat yang aman & rapi</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Digitech Funclub. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript untuk Navbar Mobile & Switcher Tema -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Toggle Menu Mobile
+            const menuToggle = document.getElementById('menuToggle');
+            const navLinks = document.getElementById('navLinks');
+
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', () => {
+                    navLinks.classList.toggle('active');
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+
+            // 2. Feature: Ganti Tema (Cyber Dark / Cyber Light)
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const body = document.body;
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.className = savedTheme;
+                updateIcon(savedTheme === 'theme-light');
+            }
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    const isLight = body.classList.contains('theme-light');
+                    
+                    if (isLight) {
+                        body.classList.remove('theme-light');
+                        body.classList.add('theme-dark');
+                        localStorage.setItem('theme', 'theme-dark');
+                        updateIcon(false);
+                    } else {
+                        body.classList.remove('theme-dark');
+                        body.classList.add('theme-light');
+                        localStorage.setItem('theme', 'theme-light');
+                        updateIcon(true);
+                    }
+                });
+            }
+
+            function updateIcon(isLight) {
+                if (themeIcon) {
+                    if (isLight) {
+                        themeIcon.classList.remove('fa-moon');
+                        themeIcon.classList.add('fa-sun');
+                    } else {
+                        themeIcon.classList.remove('fa-sun');
+                        themeIcon.classList.add('fa-moon');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
